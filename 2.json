@@ -1,0 +1,17 @@
+[
+  {
+    "$group": {
+      "_id": "$title",
+      "commentCount": {
+        "$sum": "$num_mflix_comments"
+      }
+    }
+  },
+  {
+    "$project": {
+      "_id": 0,
+      "title": "$_id",
+      "commentCount": 1
+    }
+  }
+]

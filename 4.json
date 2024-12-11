@@ -1,0 +1,22 @@
+[
+  {
+    "$unwind": {
+      "path": "$cast"
+    }
+  },
+  {
+    "$group": {
+      "_id": "$cast",
+      "movieCount": {
+        "$sum": 1
+      }
+    }
+  },
+  {
+    "$project": {
+      "_id": 0,
+      "castMember": "$_id",
+      "movieCount": 1
+    }
+  }
+]
